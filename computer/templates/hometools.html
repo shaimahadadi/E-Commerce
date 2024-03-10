@@ -1,0 +1,38 @@
+{% extends "basecomputer.html" %}
+
+ {% block title %}
+ hoom tools
+ {% endblock %} 
+{% block content %} 
+{% for item in computer %}
+<body style="background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20230704/pngtree-pastel-green-background-kitchen-utensils-perfect-for-baking-and-cooking-3d-image_3750083.jpg');"></body>
+<div class="row mt-3 text-center d-flex justify-content-center">
+  <div class="col-sm-8">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="../static/images/{{item.image}}" class='img-thumbnail'>
+          </div>
+          <div class="col-sm-9">
+            <ul class="list-unstyled text-start">
+              <li><h4 class="alert alert-success">{{item.itemsid.name}} </h4></li>
+              <li><strong> {{item.price}}</strong></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+              <a href="{% url 'detailsorder' id=item.itemsid.id %}" class="btn btn-info">Product Details </a>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}
